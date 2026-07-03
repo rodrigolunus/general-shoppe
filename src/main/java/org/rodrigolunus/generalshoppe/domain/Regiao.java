@@ -10,7 +10,7 @@ import java.util.List;
 import java.util.Objects;
 
 @Entity
-public class Estado implements Serializable {
+public class Regiao implements Serializable {
     private static final long serialVersionUID = 1L;
 
     @Id
@@ -19,15 +19,15 @@ public class Estado implements Serializable {
     private String nome;
 
     @JsonIgnore
-    @OneToMany(mappedBy = "estado")
+    @OneToMany(mappedBy = "regiao")
     private List<Cidade> cidades = new ArrayList<>();
 
 
-    public Estado() {
+    public Regiao() {
     }
 
 
-    public Estado(Integer id, String nome) {
+    public Regiao(Integer id, String nome) {
         this.id = id;
         this.nome = nome;
     }
@@ -59,8 +59,8 @@ public class Estado implements Serializable {
     @Override
     public boolean equals(Object o) {
         if (o == null || getClass() != o.getClass()) return false;
-        Estado estado = (Estado) o;
-        return Objects.equals(id, estado.id);
+        Regiao regiao = (Regiao) o;
+        return Objects.equals(id, regiao.id);
     }
 
     @Override

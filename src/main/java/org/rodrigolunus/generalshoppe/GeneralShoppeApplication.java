@@ -20,7 +20,7 @@ public class GeneralShoppeApplication implements CommandLineRunner {
     private ProdutoRepository produtoRepository;
 
     @Autowired
-    private EstadoRepository estadoRepository;
+    private RegiaoRepository regiaoRepository;
 
     @Autowired
     private CidadeRepository cidadeRepository;
@@ -90,8 +90,8 @@ public class GeneralShoppeApplication implements CommandLineRunner {
         categoriaRepository.saveAll(Arrays.asList(cat1, cat2, cat3, cat4, cat5, cat6, cat7));
         produtoRepository.saveAll(Arrays.asList(p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11));
 
-        Estado est1 = new Estado(null, "Minas Gerais");
-        Estado est2 = new Estado(null, "São Paulo");
+        Regiao est1 = new Regiao(null, "Minas Gerais");
+        Regiao est2 = new Regiao(null, "São Paulo");
 
         Cidade c1 = new Cidade(null, "Uberlândia", est1);
         Cidade c2 = new Cidade(null, "São Paulo", est2);
@@ -101,7 +101,7 @@ public class GeneralShoppeApplication implements CommandLineRunner {
         est1.getCidades().addAll(Arrays.asList(c1));
         est2.getCidades().addAll(Arrays.asList(c2, c3));
 
-        estadoRepository.saveAll(Arrays.asList(est1, est2));
+        regiaoRepository.saveAll(Arrays.asList(est1, est2));
         cidadeRepository.saveAll(Arrays.asList(c1, c2, c3));
 
         Cliente cli1 = new Cliente(null, "Maria Silva", "maria@gmail.com");
